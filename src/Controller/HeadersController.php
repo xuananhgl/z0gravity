@@ -142,17 +142,19 @@ class HeadersController extends AppController
         }
     public function edit($id = null)
         {      
-       
+            $this->loadModel('Interfaces');
             $this->loadModel('Pres');
             $header = $this->Headers->get($id);
              $pre = $this->Pres->get($id);
+             $interface = $this->Interfaces->get($id);
           
             if ($this->request->is(['patch', 'post', 'put'])) {
                 $header = $this->Headers->patchEntity($header, $this->request->getData());
                     $pre = $this->Pres->patchEntity($pre, $this->request->getData());
+                     $interface = $this->Interfaces->patchEntity($interface, $this->request->getData());
 
                
-                if ($this->Headers->save($header)&&$this->Pres->save($pre)){
+                if ($this->Headers->save($header)&&$this->Pres->save($pre)&&$this->Interfaces->save($interface)){
                     $this->Flash->success(__('The user has been saved.'));
               
                     return $this->redirect(['action' => 'index']);
@@ -163,6 +165,7 @@ class HeadersController extends AppController
 
             $this->set(compact('pre'));
          $this->set(compact('header'));
+           $this->set(compact('interface'));
         
            
        

@@ -92,8 +92,8 @@ $cakeDescription = 'zogravity';
                             
                                 <?= $this->Html->image('D1.jpg') ?>
                                 <div class="item_mute"><i class="fa-solid fa-volume-xmark"></i></div>
-                <?=  $this->Form->create($header);?>
-                            
+              
+                         
                                 <div class="container_title">
                                         <h1 class="font_blue"> <?=  $this->Form->control('title', ['rows' => '3']);?></h1>
                                 
@@ -107,13 +107,17 @@ $cakeDescription = 'zogravity';
                                 <div class="container_item">
                                     <i class="fa-solid fa-circle-play"></i><div class="item_vd"><p><?=  $this->Form->control('bnt_video', ['id'=>'ccc']);?></p></div>
                                 </div>
-                                
+                                          
+  <?=  $this->Form->create($interface);?> 
+      <?= $this->Form->control('backgroun_header');?>
+      <?= $this->Form->control('color_header');?>
+      <?= $this->Form->control('image_header');?>
+       
                             </div> 
 
          
-           
 
-      
+     
         
         
          
